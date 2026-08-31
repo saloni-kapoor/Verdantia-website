@@ -59,11 +59,7 @@ var image = document.querySelector(".carousel img");
 var next = document.querySelector(".carousel .next");
 var pre = document.querySelector(".carousel .pre");
 
-next.addEventListener("click", function (e) {
-
-    e.preventDefault();
-    e.stopPropagation();
-
+function showNext() {
     current++;
 
     if (current >= images.length) {
@@ -71,14 +67,9 @@ next.addEventListener("click", function (e) {
     }
 
     image.src = images[current];
+}
 
-});
-
-pre.addEventListener("click", function (e) {
-
-    e.preventDefault();
-    e.stopPropagation();
-
+function showPrevious() {
     current--;
 
     if (current < 0) {
@@ -86,5 +77,19 @@ pre.addEventListener("click", function (e) {
     }
 
     image.src = images[current];
+}
+next.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
 
+    showNext();
 });
+pre.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    showPrevious();
+});
+setInterval(function () {
+    showNext();
+}, 3000);
