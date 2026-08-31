@@ -558,12 +558,43 @@ summary::after{
 .grally-image{
     width:60%;
 }
-.grally-image img {
+.carousel {
+    position: relative;
+    overflow: hidden;
+    margin: 40px auto;
+}
+
+.carousel img {
     width: 100%;
     height: 450px;
     object-fit: cover;
     border-radius: 25px;
     display: block;
+    transition: transform 0.5s ease;
+}
+
+.pre,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.pre {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
 }
 .grally-text{
     width:100%;
